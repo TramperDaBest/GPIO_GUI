@@ -5,12 +5,11 @@ except:
     os.system('pip install pygame')
     import pygame
 try:
-    exec("import RPi.GPIO as g")
+    exec("from gpiozero import LED")
 except:
     import os
-    os.system('pip install RPi.GPIO')
-    exec("import RPi.GPIO as g")
-exec("g.setmode(11)")
+    os.system('pip install gpiozero')
+    exec("from gpiozero import LED")
 d={}
 pygame.init()
 f_size=13
@@ -48,16 +47,16 @@ def on_click(bcmn, thing):
             if d[bcmn]:
                 d[bcmn]=False
                 thing.image.fill(gpio_off)
-                exec("g.output(bcmn,0)")
+                exec(f"l{bcmn}.off()")
             else:
                 d[bcmn]=True
                 thing.image.fill(gpio_on)
-                exec("g.output(bcmn,1)")
+                exec(f"l{bcmn}.on()")
         else:
             d[bcmn]=True
             thing.image.fill(gpio_on)
-            exec("g.setup(bcmn,g.OUT)")
-            exec("g.output(bcmn,1)")
+            exec(f"l{bcmn}=LED(bcmn)")
+            exec(f"l{bcmn}.on()")
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 p1=G1(pygame.Surface((30, 30)), 3, 3, on_click,False,(41, 108, 50))        
 p2=G1(pygame.Surface((30, 30)), 36, 3, on_click,False,(241, 50, 50))       
