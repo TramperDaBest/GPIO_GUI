@@ -122,5 +122,4 @@ while running:
             y+=33
     pygame.display.flip()
     clock.tick(30)
-exec("g.cleanup()")
 pygame.quit()
