@@ -73,7 +73,7 @@ try:
         exec("from gpiozero import LED")
     d={}
     pygame.init()
-    f_size=13
+    f_size=80
     try:
         font=pygame.font.SysFont('freesans',f_size)
         text = font.render('GPIO', True, 'white')
@@ -105,7 +105,7 @@ try:
     def on_click(bcmn, thing):
         global running
         running=False
-    screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+    screen = pygame.display.set_mode(pygame.FULLSCREEN)
     p1=G1(pygame.Surface((30, 30)), 3, 3, on_click,False,(41, 108, 50))        
     p2=G1(pygame.Surface((30, 30)), 36, 3, on_click,False,(241, 50, 50))       
     p3=G1(pygame.Surface((30, 30)), 3, 36, on_click,2,(52, 50, 119))
@@ -146,28 +146,22 @@ try:
     p38=G1(pygame.Surface((30, 30)), 36, 597, on_click,20,(52, 50, 119))       
     p39=G1(pygame.Surface((30, 30)), 3, 630, on_click,False,(52, 50, 50)) 
     p40=G1(pygame.Surface((30, 30)), 36, 630, on_click,21,(52, 50, 119))
+    def of(n=None):
+        running=False
+    p44=G1(pygame.Surface((800,300)),200,700,of,False,(192, 12, 234))
     clock = pygame.time.Clock()
-    group = pygame.sprite.Group(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29,p30,p31,p32,p33,p34,p35,p36,p37,p38,p39,p40)
+    group2 = pygame.sprite.Group(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29,p30,p31,p32,p33,p34,p35,p36,p37,p38,p39,p40)
+    group=pygame.sprite.Group(p44)
     running = True
     while running:
         events=pygame.event.get()
         for event in events:
             if event.type == pygame.QUIT:
                 running = False
-        screen.fill((255, 255, 255))
-        group.update(events)
+        screen.fill(gpio_on)
         group.draw(screen)
-        for i in range(40):
-            exec(f"text{i}=font.render(pinout[{i}],True,'white')")
-        x=5
-        y=10
-        for i in range(40):
-            exec(f"screen.blit(text{i},({x},{y}))")
-            if x==5:
-                x=38
-            else:
-                x=5
-                y+=33
+        text=font.render("Start!",True,'white')
+        screen.blit(text,(200,700))
         pygame.display.flip()
         clock.tick(30)
 except:
